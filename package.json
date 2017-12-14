@@ -1,0 +1,37 @@
+{
+  "name": "advanced-CRUD-app",
+  "version": "1.0.0",
+  "description": "Advanced CRUD application",
+  "main": "app.js",
+  "scripts": {
+    "start:dev": "nodemon ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dulin666/advanced-CRUD-app.git"
+  },
+  "keywords": [
+    "Nodejs",
+    "api",
+    "App",
+    "CRUD",
+    "Express",
+    "MySql",
+    "Sequelize"
+  ],
+  "author": "Dmitriy Dulin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dulin666/advanced-CRUD-app/issues"
+  },
+  "homepage": "https://github.com/dulin666/advanced-CRUD-app#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.5"
+  }
+}
