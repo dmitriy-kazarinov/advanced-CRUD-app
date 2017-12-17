@@ -12,12 +12,5 @@
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "advanced_CRUD_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
   }
 }
