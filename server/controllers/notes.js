@@ -18,7 +18,7 @@ module.exports = {
           as: 'noteItems'
         }]
       })
-      .then(todos => res.status(200).send(todos))
+      .then(notes => res.status(200).send(notes))
       .catch(error => res.status(400).send(error))
     )
   }

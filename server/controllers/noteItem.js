@@ -5,9 +5,9 @@ module.exports = {
     return (
       NoteItem.create({
         content: req.body.content,
-        todoId: req.params.noteId
+        noteId: req.params.noteId
       })
-      .then(todoItem => res.status(201).send(todoItem))
+      .then(noteItem => res.status(201).send(noteItem))
       .catch(error => res.status(400).send(error))
     )
   }
