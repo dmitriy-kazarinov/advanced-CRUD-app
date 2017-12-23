@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
 
   NoteItem.associate = (models) => {
     NoteItem.belongsTo(models.Note, {
-      foreignKey: 'todoId',
+      foreignKey: 'noteId',
       onDelete: 'CASCADE'
     })
   }
