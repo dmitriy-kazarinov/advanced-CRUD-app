@@ -4,7 +4,7 @@
   "description": "Advanced CRUD application",
   "main": "app.js",
   "scripts": {
-    "start:dev": "nodemon ./bin/www",
+    "start": "nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
