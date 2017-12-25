@@ -9,8 +9,11 @@ module.exports = (app) => {
   app.post('/api/notes', notesController.create)
   app.get('/api/notes', notesController.list)
 
-  app.post('/api/notes/:noteId/items', noteItemController.create)
   app.get('/api/notes/:noteId', notesController.retrieve)
   app.put('/api/notes/:noteId', notesController.update)
   app.delete('/api/notes/:noteId', notesController.destroy)
+
+  app.post('/api/notes/:noteId/items', noteItemController.create)
+  app.put('/api/notes/:noteId/items/:noteItemId', noteItemController.update)
+  app.delete('/api/notes/:noteId/items/:noteItemId', noteItemController.destroy)
 }
