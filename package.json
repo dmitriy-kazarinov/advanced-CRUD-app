@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon ./bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test mocha --exit \"test/**/*.test.js\" || true"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,10 @@
     "sequelize": "^4.28.1"
   },
   "devDependencies": {
-    "nodemon": "^1.12.5"
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "nock": "^9.1.5",
+    "nodemon": "^1.12.5",
+    "supertest": "^3.0.0"
   }
 }
