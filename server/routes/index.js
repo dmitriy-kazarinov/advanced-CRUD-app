@@ -16,4 +16,10 @@ module.exports = (app) => {
   app.post('/api/notes/:noteId/items', noteItemController.create)
   app.put('/api/notes/:noteId/items/:noteItemId', noteItemController.update)
   app.delete('/api/notes/:noteId/items/:noteItemId', noteItemController.destroy)
+
+  app.all('/api/notes/:noteId/items', (req, res) =>
+    res.status(405).send({
+      message: 'Method Not Allowed'
+    })
+  )
 }
