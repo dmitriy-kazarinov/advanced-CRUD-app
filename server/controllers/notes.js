@@ -6,7 +6,10 @@ const msg = 'Note not found'
 module.exports = {
   create (req, res) {
     return (
-      Note.create({title: req.body.title})
+      Note.create({
+        title: req.body.title,
+        text: req.body.text
+      })
       .then(note => res.status(201).send(note))
       .catch(error => res.status(400).send(error))
     )
@@ -58,7 +61,8 @@ module.exports = {
         }
         return note
           .update({
-            title: req.body.title || note.title
+            title: req.body.title || note.title,
+            text: req.body.text || note.text
           })
           .then(() => res.status(200).send(note))
           .catch((error) => res.status(400).send(error))
