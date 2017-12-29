@@ -1,5 +1,14 @@
 module.exports = (sequelize, DataTypes) => {
-  const NoteItem = sequelize.define('NoteItem', {
+  class NoteItem extends sequelize.Model {
+    static associate ({ NoteItem }) {
+      NoteItem.belongsTo(NoteItem, {
+        foreignKey: 'noteId',
+        onDelete: 'CASCADE'
+      })
+    }
+  }
+
+  NoteItem.init({
     content: {
       type: DataTypes.STRING,
       allowNull: false
@@ -8,14 +17,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     }
+  }, {
+    sequelize
   })
-
-  NoteItem.associate = (models) => {
-    NoteItem.belongsTo(models.Note, {
-      foreignKey: 'noteId',
-      onDelete: 'CASCADE'
-    })
-  }
 
   return NoteItem
 }
