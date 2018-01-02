@@ -30,4 +30,17 @@ describe('Testing note routes', () => {
         .end(done)
     })
   })
+
+  describe('Testing notes list GET /api/notes', () => {
+    it('Should response with notes list data', done => {
+      request(app)
+        .get('/api/notes')
+        .expect(200)
+        .expect(response => {
+          console.log(response)
+          expect(response.body).to.be.instanceof(Array)
+        })
+        .end(done)
+    })
+  })
 })
