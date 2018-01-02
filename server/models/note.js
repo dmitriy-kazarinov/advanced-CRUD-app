@@ -1,14 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  class Note extends sequelize.Model {
-    static associate ({ Note }) {
-      Note.hasMany(Note, {
-        foreignKey: 'noteId',
-        as: 'answers'
-      })
-    }
-  }
-
-  Note.init({
+  const Note = sequelize.define('Note', {
     title: {
       type: DataTypes.STRING,
       allowNull: false
@@ -18,9 +9,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
       defaultValue: null
     }
-  }, {
-    sequelize
   })
+
+  Note.associate = (models) => {
+    Note.hasMany(models.NoteItem, {
+      foreignKey: 'noteId',
+      as: 'noteItems'
+    })
+  }
 
   return Note
 }

@@ -1,23 +1,23 @@
-const { Notes, NoteItems } = require('../models')
+const { Note } = require('../models')
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    const notesTest = await Notes.findOne({
+    const noteTest = await Note.findOne({
       where: {
         title: 'Test note'
       }
     })
 
-    await NoteItems.bulkCreate([{
+    return queryInterface.bulkInsert('NoteItems', [{
       content: 'Test note item',
       complete: false,
       createdAt: Sequelize.fn('now'),
       updatedAt: Sequelize.fn('now'),
-      noteId: notesTest.id
-    }])
+      noteId: noteTest.id
+    }], {})
   },
 
-  async down (queryInterface) {
-    await queryInterface.bulkDelete('NoteItems', null, {})
+  down (queryInterface) {
+    return queryInterface.bulkDelete('NoteItems', null, {})
   }
 }
